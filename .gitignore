@@ -1,0 +1,34 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+# Exclude 
+.vs/
+*.dbmdl
+*.jfm
+*.suo
+*.rsuser
+*.sqlproj.user
+*.sqlite
+*.yml
+*.dtbcache.v2
+*.futdcache.v1
+*.cache
+*.user
+_ReSharper.*
+bin
+obj
+packages
+/bin 
+/OBJ 
+/obj/staticwebassets.pack.sentinel
+# Except
+
+# Dependencies that this project has ought to have been
+# checked in, but large binaries and git don't mix.
+# Also, zfp is now built locally. So it ought to have
+# been in a separate folder. Eventually I'd like to build
+# the seismic store libraries locally as well.
+/external/*.whl
+/external/*.so
+/external/*.sentinel
