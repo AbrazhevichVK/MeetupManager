@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MeetupManager.Migrations
+namespace Storage.Migrations
 {
     public partial class FirstMigration : Migration
     {

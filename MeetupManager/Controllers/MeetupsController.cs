@@ -1,8 +1,9 @@
-﻿using MeetupManager.Context;
-using MeetupManager.Models;
+﻿using Storage.Context;
+using MeetupManager.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
+using Domain.Models;
+using Domain.Providers;
 
 namespace MeetupManager.Controllers
 {
@@ -18,42 +19,92 @@ namespace MeetupManager.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Meetup> Get()
+        public IEnumerable<MeetupContract> Get()
         {
-            return _meetupContext.Meetups;
+            var provider = new MeetupModelProvider(_meetupContext);
+
+            var meetupModels = provider.GetMeetups();
+
+            var meetups = new List<MeetupContract>();
+
+            foreach (var item in meetupModels)
+            {
+                var meetup = ConvertToMeetupContract(item);
+
+                meetups.Add(meetup);
+            }
+
+            return meetups;
         }
 
         [HttpGet("{id}", Name = "Get")]
-        public Meetup Get(int id)
+        public MeetupContract Get(int id)
         {
-            return _meetupContext.Meetups.SingleOrDefault(x=>x.MeetupId == id);
+            var provider = new MeetupModelProvider(_meetupContext);
+
+            var meetupModel = provider.GetMeetup(id);
+
+            return ConvertToMeetupContract(meetupModel);
         }
 
         [HttpPost]
-        public void Post([FromBody] Meetup meetup)
+        public void Post([FromBody] MeetupContract meetupContract)
         {
-            _meetupContext.Meetups.Add(meetup);
-            _meetupContext.SaveChanges();
+            var provider = new MeetupModelProvider(_meetupContext);
+
+            var meetupModel = ConvertToMeetupModel(meetupContract);
+
+            provider.CreateMeetup(meetupModel);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Meetup meetup)
+        public void Put(int id, [FromBody] MeetupContract meetupContract)
         {
-            meetup.MeetupId = id;
-            _meetupContext.Meetups.Update(meetup);
-            _meetupContext.SaveChanges();
+            var provider = new MeetupModelProvider(_meetupContext);
+
+            var meetupModelToUpdate = ConvertToMeetupModel(meetupContract);
+
+            provider.UpdateMeetup(id, meetupModelToUpdate);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var meetup = _meetupContext.Meetups.FirstOrDefault(x => x.MeetupId == id);
+            var provider = new MeetupModelProvider(_meetupContext);
 
-            if (meetup != null) 
+            provider.DeleteMeetup(id);
+        }
+
+        private MeetupModel ConvertToMeetupModel(MeetupContract meetupContract)
+        {
+            return new MeetupModel()
             {
-                _meetupContext.Meetups.Remove(meetup);
-                _meetupContext.SaveChanges();
-            }
+                MeetupId = meetupContract.MeetupId,
+                Title = meetupContract.Title,
+                Theme = meetupContract.Theme,
+                Description = meetupContract.Description,
+                Plan = meetupContract.Plan,
+                Organizar = meetupContract.Organizar,
+                Speaker = meetupContract.Speaker,
+                MeetupTime = meetupContract.MeetupTime,
+                MeetupPlace = meetupContract.MeetupPlace
+            };
+        }
+
+        private MeetupContract ConvertToMeetupContract(MeetupModel meetupModel)
+        {
+            return new MeetupContract()
+            {
+                MeetupId = meetupModel.MeetupId,
+                Title = meetupModel.Title,
+                Theme = meetupModel.Theme,
+                Description = meetupModel.Description,
+                Plan = meetupModel.Plan,
+                Organizar = meetupModel.Organizar,
+                Speaker = meetupModel.Speaker,
+                MeetupTime = meetupModel.MeetupTime,
+                MeetupPlace = meetupModel.MeetupPlace
+            };
         }
     }
 }

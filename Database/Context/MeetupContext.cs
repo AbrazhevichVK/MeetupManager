@@ -1,7 +1,7 @@
-﻿using MeetupManager.Models;
+﻿using Storage.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MeetupManager.Context
+namespace Storage.Context
 {
     public class MeetupContext : DbContext
     {
@@ -10,6 +10,6 @@ namespace MeetupManager.Context
             
         }
 
-        public DbSet<Meetup> Meetups { get; set; }
+        public DbSet<MeetupDataModel> Meetups { get; set; }
     }
 }
