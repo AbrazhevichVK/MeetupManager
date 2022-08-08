@@ -5,9 +5,9 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeetupManager", "MeetupManager\MeetupManager.csproj", "{5AF3B759-E061-42D6-BF02-212A68F09BB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "Database\Storage.csproj", "{87EA113E-F37B-4088-A499-024B422357D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "Database\Storage.csproj", "{87EA113E-F37B-4088-A499-024B422357D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A6D38546-4EBD-47CC-AD9A-5761AE9C5F23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A6D38546-4EBD-47CC-AD9A-5761AE9C5F23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -18,6 +18,9 @@ namespace MeetupManager.Controllers
             _meetupContext = meetupContext;
         }
 
+        /// <summary>
+        ///     Get meetups
+        /// </summary>
         [HttpGet]
         public IEnumerable<MeetupContract> Get()
         {
@@ -37,6 +40,9 @@ namespace MeetupManager.Controllers
             return meetups;
         }
 
+        /// <summary>
+        ///     Get meetup by id
+        /// </summary>
         [HttpGet("{id}", Name = "Get")]
         public MeetupContract Get(int id)
         {
@@ -47,6 +53,9 @@ namespace MeetupManager.Controllers
             return ConvertToMeetupContract(meetupModel);
         }
 
+        /// <summary>
+        ///     Create meetup
+        /// </summary>
         [HttpPost]
         public void Post([FromBody] MeetupContract meetupContract)
         {
@@ -57,6 +66,9 @@ namespace MeetupManager.Controllers
             provider.CreateMeetup(meetupModel);
         }
 
+        /// <summary>
+        ///     Update meetup
+        /// </summary>
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] MeetupContract meetupContract)
         {
@@ -67,6 +79,9 @@ namespace MeetupManager.Controllers
             provider.UpdateMeetup(id, meetupModelToUpdate);
         }
 
+        /// <summary>
+        ///     Delete meetup
+        /// </summary>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

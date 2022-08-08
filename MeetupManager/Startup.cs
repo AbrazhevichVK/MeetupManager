@@ -22,7 +22,7 @@ namespace MeetupManager
         {
             services.AddMvc();
             services.AddDbContext<MeetupContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbMeetups")));
-
+          
             services.AddSwaggerGen(c => 
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { 
@@ -58,6 +58,7 @@ namespace MeetupManager
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }
