@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "Database\Storage
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A6D38546-4EBD-47CC-AD9A-5761AE9C5F23}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DbExpandManager", "DbExpandManager\DbExpandManager.sqlproj", "{61A2D4D2-8197-401E-9712-BC9C8F1B041F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{A6D38546-4EBD-47CC-AD9A-5761AE9C5F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D38546-4EBD-47CC-AD9A-5761AE9C5F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D38546-4EBD-47CC-AD9A-5761AE9C5F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A2D4D2-8197-401E-9712-BC9C8F1B041F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A2D4D2-8197-401E-9712-BC9C8F1B041F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A2D4D2-8197-401E-9712-BC9C8F1B041F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{61A2D4D2-8197-401E-9712-BC9C8F1B041F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A2D4D2-8197-401E-9712-BC9C8F1B041F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A2D4D2-8197-401E-9712-BC9C8F1B041F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

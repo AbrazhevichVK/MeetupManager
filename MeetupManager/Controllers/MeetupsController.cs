@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Domain.Models;
 using Domain.Providers;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace MeetupManager.Controllers
 {
